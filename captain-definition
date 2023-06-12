@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 2,
+  "dockerfileLines": [
+<<<<<<< HEAD
+    "FROM socialengine/nginx-spa:latest",
+    "COPY ./build /app",
+    "RUN chmod -R 777 /app"
+  ]
+=======
+    "FROM node:14-alpine",
+    "WORKDIR /app",
+    "COPY package*.json ./",
+    "RUN npm install",
+    "COPY . .",
+    "RUN npm run build",
+    "EXPOSE 80",
+    "CMD [\"npm\", \"start\"]"
+  ],
+  "dockerOptions": {
+    "imageBaseName": "my-react-app"
+  },
+  "envVars": {
+    "NODE_ENV": "production"
+  },
+  "app": {
+    "httpPort": 80
+  }
+>>>>>>> 61a6f1d25b8b5a8807587ae84a7a03ab88e7e525
+}
